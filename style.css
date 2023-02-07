@@ -21,6 +21,17 @@ body{
     width: 58px;
     height: 87px;
     animation: ciclo-animacao 1s steps(8) infinite;
+    position: relative;
+    overflow-x: auto;
+}
+
+.animation::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #c48e84;
+    animation: enlargeBlock .5s, revealBlock .5s .6s both;
 }
 
 @keyframes ciclo-animacao{
@@ -32,11 +43,13 @@ body{
 
 .animation-seg{
     background-image: url("images/ciclo-animacao.png");
-    width: 500px;
-    height: 87px;
-    background-size: 300% 100%; /*se deixar 300/300 vai de uma quina a outra*/
+    width: 300px;
+    height: 150px;
+    background-repeat: no-repeat;
+    /* background-size: 100% 100%; se deixar 300/300 vai de uma quina a outra */
     animation: animation-t 10s ease infinite;
-}
+    object-fit: cover; /* faz a imagem caber na area desejada, amplia em distorcer*/
+} 
 
 @keyframes animation-t {
     0%{
@@ -161,3 +174,12 @@ body{
     }
 }
 
+
+h2{
+    margin: 30px;
+}
+
+h2::after{
+    content: "24424"; /* pode ter conteudo aqui dentro*/
+    display: block; /* faz objeto ir para baixo ou para cima dependendo do after ou before*/
+}
