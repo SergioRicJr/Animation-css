@@ -10,6 +10,12 @@ body{
     align-items: left;
 }
 
+.divisao{
+    display: flex;
+    margin-top: 23px;
+    gap: 40px;
+}
+
 .animation{
     background-image: url('images/ciclo-animacao.png'); 
     width: 58px;
@@ -101,3 +107,57 @@ body{
     }
 
 }
+
+.divisao {
+    margin-left: 50px;
+}
+
+.divisao h1{
+    opacity: 0;
+    animation: fadeintext 2s .6s both; 
+}
+/* both para manter animacao final */
+
+@keyframes fadeintext{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.text-block{
+    position: relative;
+    overflow: hidden;
+}
+
+.text-block::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #c48e84;
+    animation: enlargeBlock .5s, revealBlock .5s .6s both;
+}
+
+@keyframes revealBlock {
+    from {
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes enlargeBlock {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
